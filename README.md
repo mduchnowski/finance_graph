@@ -1,1 +1,2 @@
-# finance_graph
+# Network Grpahs
+to explore data illustrations
