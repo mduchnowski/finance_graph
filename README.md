@@ -1,2 +1,2 @@
-# Network Grpahs
+# Network Graphs
 to explore data illustrations
