@@ -10,7 +10,8 @@ import datetime
 import json
 import re
 
-from pyvis.network import Network
+import pyvis
+#from pyvis.network import Network
 import networkx as nx
 
 import plotly.express as px
@@ -80,6 +81,8 @@ fig = px.treemap(df, path=['Contract','Activity'], values='PCT_TOT', color='Cont
 fig.update_layout(uniformtext=dict(minsize=20))
 fig.update_traces(legendgrouptitle_font_size=25, selector=dict(type='treemap'))
 
+
+
 st.plotly_chart(fig)
 
 
@@ -103,6 +106,7 @@ for i in range(1,60):
         if value != '':
             nx_graph.add_edge(i-1, j-1)  
 
+            
 #Position for layout
 pos = nx.circular_layout(nx_graph)
 #pos = nx.random_layout(nx_graph)
@@ -132,4 +136,6 @@ patches = [plt.plot([],[], marker="o", ms=13, ls="", mec=None, color=color_palle
           ]
 
 plt.legend(handles=patches, loc='upper center', bbox_to_anchor=(1.2, 0.7), ncol=1, facecolor="white", numpoints=1, fontsize=15)
-st.pyplot(fig)
+
+colC1, colC2 = st.columns((5,5))
+colC1.pyplot(fig)
